@@ -33,9 +33,9 @@ const Navbar = () => {
             <RiInstagramFill />
           </div>
         </div>
-        <nav className="flex items-center justify-start md:gap-45 bg-amber-100 py-2  ">
+        <nav className="flex items-center justify-start md:gap-45  py-2  ">
           <div>
-            <img className="h-15 md:px-15 " src={Logo} alt="" />
+            <img className=" h-16 w-55 md:px-15 " src={Logo} alt="" />
           </div>
           <div className="flex items-center justify-around font-semibold px-10 text-lg gap-10">
             <NavLink
