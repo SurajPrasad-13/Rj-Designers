@@ -27,12 +27,15 @@ import gallery26 from "../assets/Home/gallery26.png";
 import gallery27 from "../assets/Home/gallery27.png";
 import gallery28 from "../assets/Home/gallery28.png";
 import gallery29 from "../assets/Home/gallery29.png";
-
-
 import testi1 from "../assets/Home/testi_1_4.webp";
 import testi2 from "../assets/Home/testi_2_1.webp";
 import testi3 from "../assets/Home/testi_2_2.webp";
 import testi4 from "../assets/Home/testi_2_3.webp";
+
+import modular from '../assets/Home/Modular.png'
+import fullhome from '../assets/Home/FullHome.png'
+import luxury from '../assets/Home/Lurxry.png'
+import renovation from '../assets/Home/Renovation.jpg'
 
 export const footerData = [
   { id: 1, img: gallery1 },
@@ -239,5 +242,33 @@ export const gallery = [
   },
   {
     img:gallery29
+  },
+]
+
+
+export const serviceData = [
+  {
+    id:'01',
+    img:modular,
+    title:'Modular Interior',
+    desc:'smart. stylish. flexible. modular interiors redefined.  '
+  },
+  {
+    id:'02',
+    img:fullhome,
+    title:'full home Interior',
+    desc:'compelete home interior stylish functional and personalized.'
+  },
+  {
+    id:'03',
+    img:luxury,
+    title:'Luxury Interior',
+    desc:'Timeless luxury, elegant designs, crafted for you. '
+  },
+  {
+    id:'04',
+    img:renovation,
+    title:'Renovation',
+    desc:'Revamp, Refresh, Renew - Transform Your Space Today! '
   },
 ]

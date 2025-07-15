@@ -29,7 +29,7 @@
 }
 
 .Contactbtn:hover::before {
-  transform: translateY(0%) rotate(-180deg);
+  transform: translateY(0%) rotate(360deg);
 }
 
 .Contactbtn:hover::after {

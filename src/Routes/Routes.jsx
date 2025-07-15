@@ -6,6 +6,10 @@ import Blogs from "../Components/Pages/Blogs";
 import ContactUs from "../Components/Pages/ContactUs";
 import Service from "../Components/Pages/Service";
 import Projects from "../Components/Pages/Projects";
+import Modular from "../Components/Pages/Modular";
+import FullHome from "../Components/Pages/FullHome";
+import Luxury from "../Components/Pages/Luxury";
+import Renovation from "../Components/Pages/Renovation";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +38,22 @@ export const router = createBrowserRouter([
       {
         path: "projects",
         element: <Projects />,
+      },
+      {
+        path: "modular",
+        element: <Modular />,
+      },
+      {
+        path: "fullhome",
+        element: <FullHome />,
+      },
+      {
+        path: "luxury",
+        element: <Luxury />,
+      },
+      {
+        path: "renovation",
+        element: <Renovation />,
       },
     ],
   },

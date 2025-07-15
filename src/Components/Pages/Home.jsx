@@ -1,4 +1,3 @@
-import React from "react";
 import Dots from "../../assets/Home/about_dots.webp";
 import SliderBack from "../../assets/Home/sliderBack.jpeg";
 import slider from "../../assets/Home/Slider.png";
@@ -13,6 +12,7 @@ import { FaPlay } from "react-icons/fa";
 import {
   blogPosts,
   gallery,
+  serviceData,
   testimonials,
   whyChooseUs,
 } from "../../assets/DataObject";
@@ -21,13 +21,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import quote from "../../assets/Home/quote.svg";
-
 import ContactImg from "../../assets/Home/contactimg.jpg";
 import "../../App.css";
 import { IoPersonOutline } from "react-icons/io5";
 import { FaRegComments } from "react-icons/fa";
 import { IoArrowForward } from "react-icons/io5";
-import { img } from "motion/react-client";
 
 const Home = () => {
   const playButtonStyles =
@@ -90,62 +88,73 @@ const Home = () => {
 
   return (
     <div>
-      {/* first Part image animation */}
-      <div className="grid  grid-cols-1 lg:grid-cols-2 px-15">
-        <div className="relative h-auto w-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 px-4 sm:px-6 md:px-10 lg:px-16  w-screen mb-10  mx-auto gap-8">
+        {/* Left Image Section */}
+        <div className="  relative w-50 sm:w-70  h-35  sm:h-60 md:h-96  md:w-full lg:w-135 mt-10 ">
+          {/* Dots image */}
           <motion.div
             animate={{ y: [10, -10, 10] }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              repeatType: "loop",
-            }}
-            className=" absolute h-100 right-0 top-0 "
+            transition={{ duration: 6, repeat: Infinity, repeatType: "loop" }}
+            className="absolute right-0 top-0 w-50 sm:w-70 h-35 md:h-80 lg:h-90  md:w-[216px]  "
           >
-            <img className="h-130" src={Dots} alt="" />
+            <img className="h-full" src={Dots} alt="" />
           </motion.div>
-          <div className="absolute z-3 h-100 w-170">
-            <img className="h-100 w-150" src={SliderBack} alt="" />
+
+          {/* Large background image */}
+          <div className="absolute z-10 w-50 sm:w-70  h-35  sm:h-60 md:h-96  md:w-full lg:w-135 ">
+            <img
+              className="h-full w-full object-contain"
+              src={SliderBack}
+              alt=""
+            />
           </div>
+
+          {/* Sliding image */}
           <motion.div
             animate={{ x: [10, -30, 10] }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              repeatType: "loop",
-            }}
-            className="absolute bg-white p-2 z-5 top-15 right-5"
+            transition={{ duration: 6, repeat: Infinity, repeatType: "loop" }}
+            className="absolute z-20 top-10 sm:top-14 right-4 bg-white p-1  h-25 md:h-68   md:w-[216px]"
           >
-            <img src={slider} alt="" />
+            <img className="h-full object-contain" src={slider} alt="" />
           </motion.div>
         </div>
-        <div className=" px-15 h-160 w-120">
-          <div className="relative w-38  bg-amber-300 flex items-center my-8 ">
-            <p className="absolute right-21 my-1 border pb-[1px] bg-orange-600 w-13 border-orange-600 "></p>
-            <p className="absolute bottom-[10x] right-0 text-orange-600 font-bold">
+
+        {/* Right Content Section */}
+        <div className="w-full h-auto flex flex-col justify-center">
+          {/* Title */}
+          <div className="flex items-center justify-center md:justify-start space-x-2 my-6">
+            <img src={doubleLine1} className="w-6 sm:w-8" alt="" />
+            <p className="text-orange-600 font-bold text-sm sm:text-base">
               ABOUT US
             </p>
-            <p className="absolute bottom-0 my-1  border w-17 pb-[1px] bg-orange-600  border-orange-600"></p>
           </div>
-          <div className="text-2xl  my-4 font-bold">
+
+          {/* Heading */}
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 leading-snug">
             Here’s a possible "About Us" section for RJ Designers, an interior
             design firm:
-          </div>
-          <div className="text-gray-600 leading-6 text-lg">
+          </h2>
+
+          {/* Paragraph */}
+          <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
             At RJ Designers, we transform spaces into stunning, functional, and
             inspiring environments. With a passion for creativity and a
             commitment to excellence, our team specializes in residential,
             commercial, and luxury interior designs that reflect style,
             personality, and elegance.
-          </div>
-          <div className="flex items-center rounded justify-center gap-1 bg-[#eb3300] w-40 m-5 px-5 py-4 font-bold text-lg text-white">
-            <button>Read More </button>
-            <FaArrowRight />
+          </p>
+
+          {/* Button */}
+          <div className="mt-6">
+            <button className="Contactbtn Contactbtn flex items-center gap-2 bg-[#eb3300] px-4 py-2 md:px-6 md:py-3 text-white font-semibold text-sm sm:text-base rounded hover:bg-[#cc2c00] transition duration-300">
+              Read More <FaArrowRight />
+            </button>
           </div>
         </div>
       </div>
-      {/* Second Part */}
-      <div className="bg-[#161921]  pt-15 border border-white text-white ">
+
+      {/* Second Part Services we Provide */}
+      <div className="bg-[#161921]  pt-5 md:pt-15 border border-white text-white ">
         <div className="text-[#eb3300] flex items-center font-bold uppercase justify-center gap-2">
           <div>
             <img className="w-8" src={doubleLine1} alt="" />
@@ -156,14 +165,53 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="text-5xl font-bold text-center my-5">
+        <div className=" text-3xl md:text-5xl font-bold text-center my-2 md:my-5">
           Our Service Area
+        </div>
+
+        <div className="my-10 h-120 w-full mx-auto  ">
+          <Slider {...settings1}>
+            {serviceData.map((post) => {
+              return (
+                <div
+                  key={post.id}
+                  className="relative h-110  max-w-97  my-5   shadow-lg group "
+                >
+                  <div className="w-97 h-[300px] overflow-hidden">
+                    <img
+                      src={post.img}
+                      alt={post.title}
+                      className="w-97 h-[300px] object-cover transition duration-300 group-hover:scale-110 group-hover:brightness-50 "
+                    />
+                  </div>
+                  <div className="bg-white w-85 h-60 mx-auto absolute -bottom-10  left-6">
+                    <div className=" absolute -left-6 bg-[#eb3300] size-15   p-3 text-center ">
+                      <div className="text-3xl font-bold leading-none">
+                        {post.id}
+                      </div>
+                    </div>
+                    <div className="px-10 capitalize">
+                      <div className="py-7 text-2xl font-[600] text-black">
+                        {post.title}
+                      </div>
+                      <div className=" mb-5 text-gray-600 text-lg">
+                        {post.desc}
+                      </div>
+                    </div>
+                    <div className="h-15 w-full flex items-center gap-2 justify-center bg-[#eb3300] hover:bg-gray-200 hover:text-[#eb3300] transition-all duration-300  ">
+                      <p className="text-xl font-semibold">View Details </p>
+                      <FaArrowRight className="text-xl" />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </Slider>
         </div>
       </div>
 
-      {/* Third Part */}
       <div
-        className=" h-auto bg-left-top bg-no-repeat grid gap-25 grid-cols-1 lg:grid-cols-2 my-15 px-15"
+        className=" h-auto bg-left-top bg-no-repeat grid gap-10 md:gap-25 grid-cols-1 lg:grid-cols-2 my-15 px-3 md:px-15"
         style={{ backgroundImage: `url(${setting_bg})` }}
       >
         <div>
@@ -175,7 +223,7 @@ const Home = () => {
             Improve Your Living and Working Environments with Jaipur's Top
             Interior Designer
           </div>
-          <div className="text-gray-600 leading-6 text-lg">
+          <div className="text-gray-600 leading-6  md:text-lg">
             RJ designers began with a clear goal: to design environments that
             inspire, change, and have an impact on people's lives. Our startup
             consisted of a group of designers who shared a passion for making
@@ -185,43 +233,56 @@ const Home = () => {
             for originality and creativity.
           </div>
         </div>
-        <div className="h-93 w-98 mx-10">
-          <img className="h-93 w-98" src={office} alt="" />
+        <div className=" h-70 w-70 md:h-93 md:w-98 mx-auto">
+          <img
+            className=" h-70 w-77 sm:h-75 sm:w-85 md:h-93 md:w-98"
+            src={office}
+            alt=""
+          />
         </div>
       </div>
       {/* Fourth Part */}
       <div className="flex items-center justify-center  uppercase my-6 font-bold text-[#eb3300]">
         <img className="w-7" src={doubleLine1} alt="" />
-        <p>"Dream. Design. Inspire. Your Perfect Home Awaits."</p>
+        <p className="text-sm sm:text-[16px]">
+          "Dream. Design. Inspire. Your Perfect Home Awaits."
+        </p>
         <img className="w-7" src={doubleLine2} alt="" />
       </div>
-      <div className="text-5xl font-bold text-center mt-5 mb-25">
+      <div className="text-2xl sm:text-3xl md:text-5xl font-bold text-center mt-5 mb-20">
         Inspiration for home interior designs
       </div>
 
       {/* Fifth Part */}
       <div className="bg-[#161921] flex flex-col lg:flex-row   pt-5 border border-white text-white ">
-        <div className=" relative h-140 w-140 rounded-lg ">
-          <img className="h-140 w-140 rounded-lg " src={VideoImage} alt="" />
-          <div className={`size-17 ${playButtonStyles} `}></div>
-          <div className="absolute top-[50%] rounded-full bg-white left-[50%] size-25 shadow-2xl translate-x-[-50%] translate-y-[-50%] ">
-            <div className={`size-22 ${playButtonStyles} `}></div>
+        <div className=" relative h-70 w-70 sm:h-100 sm:w-100 mx-auto   md:h-140 md:w-140 rounded-lg ">
+          <img
+            className="h-70 w-70 sm:h-100 sm:w-100 mx-auto   md:h-140 md:w-140 rounded-lg "
+            src={VideoImage}
+            alt=""
+          />
+          <div className={` size-12 md:size-17 ${playButtonStyles} `}></div>
+          <div className="absolute top-[50%] rounded-full bg-white left-[50%] size-18 md:size-25 shadow-2xl translate-x-[-50%] translate-y-[-50%] ">
+            <div className={` size-15 md:size-22 ${playButtonStyles} `}></div>
             <FaPlay className="absolute top-[50%] text-[#eb3300] left-[50%] translate-x-[-50%] translate-y-[-50%] " />{" "}
           </div>
         </div>
         <div className="p-10">
-          <div className="flex items-center justify-start pb-10 uppercase font-semibold text-[#eb3300]">
+          <div className="flex items-center justify-center pb-10 uppercase font-semibold text-[#eb3300]">
             <img className="w-7" src={doubleLine1} alt="" />
             <p>Why Choose Us?</p>
+            <img className="w-7" src={doubleLine2} alt="" />
           </div>
           <div className="flex items-start justify-start flex-col gap-10">
             {whyChooseUs.map((item) => (
-              <div className="group flex items-center justify-center gap-7">
-                <div className="text-[#eb3300] px-6  size-20 text-4xl font-semibold rounded-full flex items-center justify-center bg-[#282a30] group-hover:bg-white transition-all duration-500">
+              <div className="group flex flex-col md:flex-row items-center justify-center gap-3 md:gap-7">
+                <div className="text-[#eb3300] px-3 md:px-6 size-15 md:size-20 text-2xl md:text-4xl font-semibold rounded-full flex items-center justify-center bg-[#282a30] group-hover:bg-white transition-all duration-500">
                   {item.id}
                 </div>
-                <div>
-                  <p className="text-2xl font-semibold">{item.title}</p>
+                <div className="text-center md:text-start">
+                  <p className="text-xl md:text-2xl font-semibold">
+                    {item.title}
+                  </p>
                   <p className="text-gray-300 text-lg">{item.description}</p>
                 </div>
               </div>
@@ -237,7 +298,7 @@ const Home = () => {
           <p>Testimonial</p>
           <img className="w-7" src={doubleLine2} alt="" />
         </div>
-        <div className=" text-3xl md:text-5xl font-bold text-center my-3 md:mt-5 mb-25">
+        <div className=" text-2xl md:text-5xl font-bold text-center my-3 md:mt-5 mb-25">
           What Clients Say About Us
         </div>
         <div className=" m-auto my-20">
@@ -288,27 +349,28 @@ const Home = () => {
           <p className="uppercase text-white font-bold">rj designers</p>
           <img className="w-7" src={doubleLine2} alt="" />
         </div>
-        <div className="text-white text-3xl md:text-[50px] text-center font-bold">
+        <div className="text-white text-2xl sm:text-3xl md:text-[50px] text-center font-bold">
           Best Interior & Architecture Designer in Jaipur
         </div>
-        <div className="text-white text-[18px] text-center font-medium my-5">
+        <div className="text-white text-[18px] text-center font-medium  my-3 md:my-5">
           Have questions about our services or want to discuss your design
           project?
         </div>
 
         <div className="text-center">
-          <button className="Contactbtn  group bg-[#eb3300] text-white p-4 px-7 uppercase rounded font-semibold my-10">
+          <button className="Contactbtn  group bg-[#eb3300] text-white py-2 px-3 md:py-4 md:px-7 uppercase rounded font-semibold my-10">
             Contact Us Now!
           </button>
         </div>
       </div>
-      {/* Eight Part */}
+      {/* Eight Part Blog and News */}
       <div className="flex items-center gap-2 justify-center py-10">
         <img className="w-7" src={doubleLine1} alt="" />
         <p className="uppercase font-bold text-[#eb3300]">Blog & News</p>
         <img className="w-7" src={doubleLine2} alt="" />
       </div>
-      <div className="text-5xl font-bold text-center  mb-20">
+
+      <div className=" text-2xl md:text-5xl font-bold text-center px-3  mb-5 md:mb-20">
         Latest post from the Blog & News
       </div>
       {/* items-start  overflow-hidden  mx-auto justify-start gap-10 */}
@@ -353,7 +415,7 @@ const Home = () => {
                 <div className="flex items-center hover:gap-5 gap-2 justify-start m-3 my-3  transition-all duration-600 ">
                   <a
                     href="#"
-                    className="text-black hover:text-[#eb3300]   font-bold underline   "
+                    className="text-black hover:text-[#eb3300] font-bold underline   "
                   >
                     READ MORE
                   </a>
@@ -370,9 +432,11 @@ const Home = () => {
         <p className="uppercase font-bold text-[#eb3300]">home interior</p>
         <img className="w-7" src={doubleLine2} alt="" />
       </div>
-      <div className="text-5xl font-bold text-center  mb-10">Gallery</div>
+      <div className="text-2xl md:text-5xl font-bold text-center  mb-10">
+        Gallery
+      </div>
 
-      <div className="h-[332px] w-[1160px] my-15 mx-auto ">
+      <div className=" h-80 w-auto sm:w-[600px] md:w-[740px]  bg-amber-200 lg:w-[1160px]  md:my-15 mx-auto ">
         <Slider {...settings2}>
           {gallery.map((item, id) => (
             <div
@@ -382,10 +446,9 @@ const Home = () => {
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
               }}
-              className=" border-0 galleryCont relative h-83 w-80  object-cover overflow-hidden "
+              className=" border-0 galleryCont relative h-80 w-40 sm:w-[300px] md:w-[370px] lg:w-[580px]  mx-auto  overflow-hidden "
             >
               <img className="mx-5 hover:grayscale-75" src={item.img} alt="" />
-              
             </div>
           ))}
         </Slider>
