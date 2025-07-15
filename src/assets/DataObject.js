@@ -1,0 +1,20 @@
+export const footerData = [
+  {id:1,
+    img:'../assets/Home/gallery1.png'
+  },
+  {id:2,
+    img:'../assets/Home/gallery2.png'
+  },
+  {id:3,
+    img:'../assets/Home/gallery3.png'
+  },
+  {id:4,
+    img:'../assets/Home/gallery4.png'
+  },
+  {id:5,
+    img:'../assets/Home/gallery5.png'
+  },
+  {id:6,
+    img:'../assets/Home/gallery6.png'
+  }
+]
