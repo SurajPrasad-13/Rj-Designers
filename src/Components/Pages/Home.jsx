@@ -11,8 +11,8 @@ import img1 from "../../assets/Home/videoimg.png";
 import img2 from "../../assets/Home/Background2.jpg";
 import img3 from "../../assets/Home/videoimg.png";
 import img4 from "../../assets/Home/Background2.jpg";
-import img5 from "../../assets/Home/hero_shape_3.webp"; 
-import img6 from "../../assets/Home/hero_shape_2.webp"; 
+import img5 from "../../assets/Home/hero_shape_3.webp";
+import img6 from "../../assets/Home/hero_shape_2.webp";
 import testyImage from "../../assets/Home/testi-shape.webp";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa6";
@@ -177,8 +177,8 @@ const Home = () => {
                 <motion.div
                   initial={{ y: 0, opacity: 0 }}
                   animate={{ y: 50, opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.3 }}
-                  className="absolute top-1/2 -translate-y-1/2 left-[40px] sm:left-[60px] md:left-[100px] text-white text-xl sm:text-2xl md:text-4xl font-bold z-30 text-left max-w-[90%]"
+                  transition={{ duration: 1.1, delay: 0.3 }}
+                  className="absolute top-1/2 -translate-y-1/2 left-[40px] sm:left-[60px] md:left-[100px] text-white text-3xl sm:text-4xl md:text-7xl font-bold z-30 text-left max-w-[50%]"
                 >
                   {item.text}
                 </motion.div>
@@ -188,6 +188,8 @@ const Home = () => {
         </AnimatePresence>
       </div>
 
+
+{/* About Us Section on Home Page */}
       <div className="grid grid-cols-1 lg:grid-cols-2 px-4 sm:px-6 md:px-10 lg:px-16  w-full mb-10  mx-auto gap-8">
         {/* Left Image Section */}
         <div className="  relative w-50 sm:w-70  h-35  sm:h-60 md:h-96  md:w-full lg:w-135 mt-10 ">
@@ -253,7 +255,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Services we Provide */}
+      {/* Our Service Area */}
       <div className="bg-[#161921]  pt-5 md:pt-15 border border-white text-white ">
         <div className="text-[#eb3300] flex items-center font-bold uppercase justify-center gap-2">
           <div>
@@ -268,7 +270,7 @@ const Home = () => {
         <div className=" text-3xl md:text-5xl font-bold text-center my-2 md:my-5">
           Our Service Area
         </div>
-
+        {/* Service Slider */}
         <div className="my-10 h-120 w-full  mx-auto  ">
           <Slider {...settings1}>
             {serviceData.map((post) => {
@@ -310,6 +312,7 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Improve Your Living and Working Environments */}
       <div
         className=" h-auto bg-left-top bg-no-repeat grid gap-10 md:gap-25 grid-cols-1 lg:grid-cols-2 my-15 px-3 md:px-15"
         style={{ backgroundImage: `url(${setting_bg})` }}
@@ -355,7 +358,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* Fourth Part */}
+
+      {/* Why Choose Us Section */}
       <div className="flex items-center justify-center  uppercase my-6 font-bold text-[#eb3300]">
         <img className="w-7" src={doubleLine1} alt="" />
         <p className="text-sm sm:text-[16px]">
@@ -366,8 +370,6 @@ const Home = () => {
       <div className="text-2xl sm:text-3xl md:text-5xl font-bold text-center mt-5 mb-20">
         Inspiration for home interior designs
       </div>
-
-      {/* Fifth Part */}
       <div className="bg-[#161921] flex flex-col lg:flex-row   pt-5 border border-white text-white px-5 ">
         <div className=" relative h-70 w-70 sm:h-100 sm:w-100 mx-auto   md:h-140 md:w-140 rounded-lg ">
           <img
@@ -405,7 +407,8 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Sixth Part carousel */}
+      {/* Testimonial Section */}
+      {/* Headings */}
       <div className=" py-20 w-11/12 mx-auto">
         <div className="flex items-center justify-center  uppercase my-6 font-bold gap-2 text-[#eb3300]">
           <img className="w-7" src={doubleLine1} alt="" />
@@ -415,6 +418,7 @@ const Home = () => {
         <div className=" text-2xl md:text-5xl font-bold text-center my-3 md:mt-5 mb-25">
           What Clients Say About Us
         </div>
+        {/* Testimonial Slider */}
         <div className=" m-auto my-20">
           <Slider {...settings1}>
             {testimonials.map((item) => {
@@ -453,7 +457,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Sevent Part */}
+      {/* Best Interior & Architecture */}
       <div
         style={{ backgroundImage: `url(${ContactImg})` }}
         className="h-100 bg-center bg-cover w-full"
@@ -477,7 +481,9 @@ const Home = () => {
           </button>
         </div>
       </div>
-      {/* Eight Part Blog and News */}
+
+      {/* Blog and News */}
+      {/*headings  */}
       <div className="flex items-center gap-2 justify-center py-10">
         <img className="w-7" src={doubleLine1} alt="" />
         <p className="uppercase font-bold text-[#eb3300]">Blog & News</p>
@@ -487,6 +493,8 @@ const Home = () => {
       <div className=" text-2xl md:text-5xl font-bold text-center px-3  mb-5 md:mb-20">
         Latest post from the Blog & News
       </div>
+
+      {/* Blog Carousel */}
       <div className="my-10 w-[89%] mx-auto pb-15  ">
         <Slider {...settings1}>
           {blogPosts.map((post) => {
@@ -539,7 +547,8 @@ const Home = () => {
           })}
         </Slider>
       </div>
-      {/* Ninth Part */}
+
+      {/* Gallery Image Slider and heading */}
       <div className="flex items-center gap-2 justify-center py-5">
         <img className="w-7" src={doubleLine1} alt="" />
         <p className="uppercase font-bold text-[#eb3300]">home interior</p>
@@ -548,7 +557,6 @@ const Home = () => {
       <div className="text-2xl md:text-5xl font-bold text-center  mb-10">
         Gallery
       </div>
-
       <div className=" h-auto w-auto sm:w-[600px] md:w-[740px]   lg:w-[1160px]  md:my-15 mx-auto ">
         <Slider {...settings2}>
           {gallery.map((item, id) => (
