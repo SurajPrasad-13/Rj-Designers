@@ -11,7 +11,7 @@ import Logo from "../../assets/logo.jpg";
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { useState } from "react";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 const Navbar = () => {
   const [isOpen, setisOpen] = useState(false);
@@ -48,49 +48,49 @@ const Navbar = () => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-              isActive ? "text-red-600 border-b-2 " : "text-black"
-            }
+                isActive ? "text-red-600 border-b-2 " : "text-black"
+              }
             >
               Home
             </NavLink>
             <NavLink
               to="/service"
-             className={({ isActive }) =>
-              isActive ? "text-red-600 border-b-2 " : "text-black"
-            }
+              className={({ isActive }) =>
+                isActive ? "text-red-600 border-b-2 " : "text-black"
+              }
             >
               Service
             </NavLink>
             <NavLink
               to="/projects"
-             className={({ isActive }) =>
-              isActive ? "text-red-600 border-b-2 " : "text-black"
-            }
+              className={({ isActive }) =>
+                isActive ? "text-red-600 border-b-2 " : "text-black"
+              }
             >
               Projects
             </NavLink>
 
             <NavLink
               to="/aboutus"
-             className={({ isActive }) =>
-              isActive ? "text-red-600 border-b-2 " : "text-black"
-            }
+              className={({ isActive }) =>
+                isActive ? "text-red-600 border-b-2 " : "text-black"
+              }
             >
               About Us
             </NavLink>
             <NavLink
               to="/blogs"
-             className={({ isActive }) =>
-              isActive ? "text-red-600 border-b-2 " : "text-black"
-            }
+              className={({ isActive }) =>
+                isActive ? "text-red-600 border-b-2 " : "text-black"
+              }
             >
               Blogs
             </NavLink>
             <NavLink
               to="/contactus"
-             className={({ isActive }) =>
-              isActive ? "text-red-600 border-b-2 " : "text-black"
-            }
+              className={({ isActive }) =>
+                isActive ? "text-red-600 border-b-2 " : "text-black"
+              }
             >
               Contact Us
             </NavLink>
@@ -102,65 +102,66 @@ const Navbar = () => {
             {isOpen ? <RxCross2 /> : <IoMenu />}
           </div>
         </nav>
-        <motion.div
-          initial={{ x: "20px" }}
-          animate={{ x: "0px" }}
-          transition={{ duration: 0.5 }}
-          className={` ${
-            isOpen ? "flex flex-col items-center justify-around" : "hidden"
-          } md:hidden absolute top-20 right-0 z-50 h-129   w-30 bg-white    font-semibold px-5 gap-4`}
-        >
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? "text-red-600 border-b-2 " : "text-black"
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/service"
-           className={({ isActive }) =>
-              isActive ? "text-red-600 border-b-2 " : "text-black"
-            }
-          >
-            Service
-          </NavLink>
-          <NavLink
-            to="/projects"
-             className={({ isActive }) =>
-              isActive ? "text-red-600 border-b-2 " : "text-black"
-            }
-            
-          >
-            Projects
-          </NavLink>
-
-          <NavLink
-            to="/aboutus"
-             className={({ isActive }) =>
-              isActive ? "text-red-600 border-b-2 " : "text-black"
-            }
-          >
-            About Us
-          </NavLink>
-          <NavLink
-            to="/blogs"
-             className={({ isActive }) =>
-              isActive ? "text-red-600 border-b-2 " : "text-black"
-            }
-          >
-            Blogs
-          </NavLink>
-          <NavLink
-            to="/contactus"
-             className={({ isActive }) =>
-              isActive ? "text-red-600 border-b-2 " : "text-black"
-            }
-          >
-            Contact Us
-          </NavLink>
-        </motion.div>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ x: "100%", opacity:0 }}
+              animate={{ x: "0%", opacity:1 }}
+              exit={{ x: "100%", opacity:0  }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="md:hidden absolute top-20 right-0 z-50 h-129 w-30 bg-white flex flex-col items-center justify-around font-semibold px-5 gap-4"
+            >
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "text-red-600 border-b-2 " : "text-black"
+                }
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="/service"
+                className={({ isActive }) =>
+                  isActive ? "text-red-600 border-b-2 " : "text-black"
+                }
+              >
+                Service
+              </NavLink>
+              <NavLink
+                to="/projects"
+                className={({ isActive }) =>
+                  isActive ? "text-red-600 border-b-2 " : "text-black"
+                }
+              >
+                Projects
+              </NavLink>
+              <NavLink
+                to="/aboutus"
+                className={({ isActive }) =>
+                  isActive ? "text-red-600 border-b-2 " : "text-black"
+                }
+              >
+                About Us
+              </NavLink>
+              <NavLink
+                to="/blogs"
+                className={({ isActive }) =>
+                  isActive ? "text-red-600 border-b-2 " : "text-black"
+                }
+              >
+                Blogs
+              </NavLink>
+              <NavLink
+                to="/contactus"
+                className={({ isActive }) =>
+                  isActive ? "text-red-600 border-b-2 " : "text-black"
+                }
+              >
+                Contact Us
+              </NavLink>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
     </div>
   );
