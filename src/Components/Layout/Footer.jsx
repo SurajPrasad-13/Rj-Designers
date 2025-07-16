@@ -3,15 +3,15 @@ import { FaRegCopyright } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
-import rjdesign from "../assets/rjdesign.png";
+import rjdesign from "../../assets/rjdesign.png";
 import { FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
-import gallery1 from "../assets/Home/gallery1.png";
-import gallery2 from "../assets/Home/gallery2.png";
-import gallery3 from "../assets/Home/gallery3.png";
-import gallery4 from "../assets/Home/gallery4.png";
-import gallery5 from "../assets/Home/gallery5.png";
-import gallery6 from "../assets/Home/gallery6.png";
+import gallery1 from "../../assets/Home/gallery1.png";
+import gallery2 from "../../assets/Home/gallery2.png";
+import gallery3 from "../../assets/Home/gallery3.png";
+import gallery4 from "../../assets/Home/gallery4.png";
+import gallery5 from "../../assets/Home/gallery5.png";
+import gallery6 from "../../assets/Home/gallery6.png";
 
 const Footer = () => {
   const footerData = [
@@ -29,14 +29,14 @@ const Footer = () => {
           {/* Logo & Description */}
           <div>
             <img className="h-14 my-4" src={rjdesign} alt="logo" />
-            <p className="text-sm text-gray-300">
+            <p className="text-sm md:text-[16px] text-white">
               At RJ Designers, we transform spaces into stunning, functional,
               and inspiring environments.
             </p>
           </div>
 
           {/* Services */}
-          <div className="font-[400] leading-9 text-sm">
+          <div className="font-[400] leading-9 text-sm md:text-[17px]">
             <h1 className="text-xl my-2 font-bold">Our Services</h1>
             {[
               "Modular Interior",
@@ -52,19 +52,20 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div className="font-[400] leading-9 text-sm">
+          <div className="font-[400] leading-9 text-sm md:text-[16px]">
             <h1 className="text-xl my-2 font-bold">Contact Us</h1>
-            <div className="flex items-center gap-2">
+            <div className=" cursor-pointer flex items-center gap-2">
               <FaPhoneAlt />
               <p>+91 9784555143</p>
             </div>
-            <div className="flex items-center gap-2">
+            <div className=" cursor-pointer flex items-center gap-2">
               <MdEmail />
               <p>info@rjdesigners.com</p>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-center justify-start
+             gap-2">
               <IoLocationSharp />
-              <p>Address: [Add address here]</p>
+              <p>Address .........</p>
             </div>
           </div>
 

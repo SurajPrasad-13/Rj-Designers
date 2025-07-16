@@ -10,6 +10,7 @@ import Modular from "../Components/Pages/Modular";
 import FullHome from "../Components/Pages/FullHome";
 import Luxury from "../Components/Pages/Luxury";
 import Renovation from "../Components/Pages/Renovation";
+import PopularTags from "../Components/Pages/PopularTags";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
       {
         path: "renovation",
         element: <Renovation />,
+      },
+      {
+        path: "populartag",
+        element: <PopularTags />,
       },
     ],
   },

@@ -8,9 +8,12 @@ import blog4 from "../../assets/Blog/BG-1.webp";
 import blog6 from "../../assets/Home/Blog6.png";
 import blog5 from "../../assets/Home/Blog5.png";
 import { IoIosSearch } from "react-icons/io";
-import { FaAngleDoubleLeft } from "react-icons/fa";
+import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 import shape1 from "../../assets/Service/shape_2-1.png"; // top right (badi wali)
 import { BlogCards, RightCards } from "../../assets/DataObject";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 const cards = [
   {
     id: 1,
@@ -50,16 +53,30 @@ const cards = [
   },
 ];
 
-
-
 const playButtonStyles =
   "absolute border-4 border-black hover:border-[#eb3300] top-[50%] rounded-full bg-white left-[50%]  translate-x-[-50%] translate-y-[-50%] animate-ping opacity-20  transition-all  duration-2000";
 
 const Blogs = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/populartag");
+  };
+
+  const [searchcategory, setsearchcategory] = useState("");
+  const [filteredCards, setFilteredCards] = useState(cards); // default = all cards
+
+  // ✅ handle search on button click
+  const handleSearch = () => {
+    const imgfilter = cards.filter((card) =>
+      card.category.toLowerCase().includes(searchcategory.toLowerCase())
+    );
+    setFilteredCards(imgfilter);
+  };
+
   return (
     <div className="bg-slate-50">
       <div
-        className="relative bg-cover bg-center w-full h-[40vh] md:h-[70vh] flex items-end"
+        className="relative bg-cover bg-center w-full  h-[60vh] md:h-[70vh] flex items-end"
         style={{ backgroundImage: `url(${blog5})` }}
       >
         <div className="absolute inset-0 bg-black opacity-70"></div>
@@ -87,12 +104,15 @@ const Blogs = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 md:mx-10 gap-10 my-10 py-10">
         {/* left */}
         <div className="">
-          {BlogCards.map((item) => {
-            return (
-              <div className=" w-75 sm:w-130   md:w-145 bg-white shadow my-10 mx-auto h-auto">
-                <div className=" w-75 sm:w-130   md:w-145 mx-auto">
+          {filteredCards.length > 0 ? (
+            filteredCards.map((item) => (
+              <div
+                key={item.id}
+                className=" w-75 sm:w-130 md:w-145 bg-white shadow my-10 mx-auto h-auto"
+              >
+                <div className=" w-75 sm:w-130 md:w-145 mx-auto">
                   <img
-                    className=" w-75 sm:w-130   md:w-145"
+                    className=" w-75 sm:w-130 md:w-145"
                     src={item.img}
                     alt=""
                   />
@@ -103,30 +123,32 @@ const Blogs = () => {
                     By Admin
                   </span>
                   <span className="flex items-center justify-start gap-1">
-                    <FaRegCalendarDays className="text-[#eb3300] text-lg" />
+                    <FaRegCalendarDays className="text-[#eb3300] text-lg" />{" "}
                     April 3, 2025
                   </span>
                   <span className="flex items-center justify-start gap-1">
-                    <FaRegComments className="text-[#eb3300] text-lg" />
+                    <FaRegComments className="text-[#eb3300] text-lg" />{" "}
                     {item.comment}
                   </span>
                 </div>
-
                 <div className="m-3 text-xl md:text-2xl font-semibold hover:text-[#eb3300] transition duration-300">
-                  <p>{item.title} </p>
+                  <p>{item.title}</p>
                 </div>
-                <div className="m-3 text-gray-600 ">
-                  <p>{item.desc} </p>
+                <div className="m-3 text-gray-600">
+                  <p>{item.desc}</p>
                 </div>
                 <div className=" mx-3 py-7">
-                  <button className="Contactbtn Contactbtn flex items-center gap-2 bg-[#eb3300] px-6 py-3 md:px-8 md:py-4 text-white font-semibold text-sm sm:text-base rounded hover:bg-[#cc2c00] transition duration-300 uppercase">
+                  <button className="Contactbtn flex items-center gap-2 bg-[#eb3300] px-6 py-3 md:px-8 md:py-4 text-white font-semibold text-sm sm:text-base rounded hover:bg-[#cc2c00] transition duration-300 uppercase">
                     Read More <FaArrowRight />
                   </button>
                 </div>
               </div>
-            );
-          })}
-
+            ))
+          ) : (
+            <p className="text-center col-span-3 text-red-500 font-semibold">
+              No Blog Found
+            </p>
+          )}
           <div className=" w-75 sm:w-130   md:w-145 bg-white shadow my-10 mx-auto h-auto">
             <div className=" w-75 sm:w-130   md:w-145 mx-auto">
               <div className=" relative w-75 sm:w-130   md:w-145 mx-auto">
@@ -244,20 +266,21 @@ const Blogs = () => {
         </div>
         {/* right */}
         <div className="col-span-1  lg:w-full mx-auto">
-          <div className="bg-gray-100 p-6 flex flex-col ">
+          <div className="bg-gray-100 p-6 flex flex-col">
             <label htmlFor="Search" className="font-bold my-3 text-lg">
               Search
             </label>
-            <div className="  justify-start items-center ">
+            <div className="justify-start items-center flex">
               <input
                 type="text"
-                name=""
-                id=""
+                value={searchcategory}
+                onChange={(e) => setsearchcategory(e.target.value)} // ✅ just update input
                 className="bg-white outline-0 p-2 md:p-5 w-auto lg:w-100"
               />
               <button
-                type="submit"
-                className="bg-[#eb3300] p-2 md:p-5 md:px-7 cursor-pointer hover:bg-black  transform  duration-1000 text-white font-semibold "
+                type="button"
+                onClick={handleSearch} // ✅ search trigger on click only
+                className="bg-[#eb3300]  p-2 md:p-5 md:px-7 cursor-pointer hover:bg-black transform duration-1000 text-white font-semibold"
               >
                 Search
               </button>
@@ -310,9 +333,9 @@ const Blogs = () => {
               />
               <button
                 type="submit"
-                className="bg-[#eb3300] p-[12px] md:p-5 md:px-7 cursor-pointer    text-white font-semibold "
+                className="bg-[#eb3300] p-[12px] md:p-5 md:px-7 cursor-pointer text-white font-semibold "
               >
-                <IoIosSearch />
+                <IoIosSearch className="md:text-2xl" />
               </button>
             </div>
           </div>
@@ -321,25 +344,25 @@ const Blogs = () => {
             <div className="text-2xl font-bold m-2 gap-2 p-2">Categories</div>
 
             <div className="list-none m-2 font-semibold text-lg">
-              <div className="flex items-center gap-2 hover:bg-orange-500 border-t-2 border-gray-300 p-2 transform transition duration-300 hover:translate-x-[10px]">
-                <FaAngleDoubleLeft />
-                <li>Full Home Interior</li>
+              <div className="relative flex items-center gap-2 bg-[#eb3300] border-t-2 border-gray-300 p-2 ">
+                <FaAngleDoubleRight />
+                <li className="flex items-center justify-center absolute left-2 transform transition duration-400 text-white hover:translate-x-[20px] "> <FaAngleDoubleRight className="text-white" /> Full Home Interior</li>
               </div>
-              <div className="flex items-center gap-2 hover:bg-orange-500 border-t-2 border-gray-300 p-2 transform transition duration-300 hover:translate-x-[10px]">
-                <FaAngleDoubleLeft />
-                <li>Luxury Interior</li>
+              <div className="relative flex items-center gap-2 bg-[#eb3300] border-t-2 border-gray-300 p-2 ">
+                <FaAngleDoubleRight />
+                <li className="flex items-center justify-center absolute left-2 transform transition duration-400 text-white hover:translate-x-[20px] "> <FaAngleDoubleRight className="text-white" /> Luxury Interior</li>
               </div>
-              <div className="flex items-center gap-2 hover:bg-orange-500 border-t-2 border-gray-300 p-2 transform transition duration-300 hover:translate-x-[10px]">
-                <FaAngleDoubleLeft />
-                <li>Modular Interior</li>
+              <div className="relative flex items-center gap-2 bg-[#eb3300] border-t-2 border-gray-300 p-2 ">
+                <FaAngleDoubleRight />
+                <li className="flex items-center justify-center absolute left-2 transform transition duration-400 text-white hover:translate-x-[20px] "> <FaAngleDoubleRight className="text-white" /> Modular Interior</li>
               </div>
-              <div className="flex items-center gap-2 hover:bg-orange-500 border-t-2 border-b-2 border-gray-300 p-2 transform transition duration-300 hover:translate-x-[10px]">
-                <FaAngleDoubleLeft />
-                <li>Renovation</li>
+              <div className="relative flex items-center gap-2 bg-[#eb3300] border-t-2 border-gray-300 p-2 ">
+                <FaAngleDoubleRight />
+                <li className="flex items-center justify-center absolute left-2 transform transition duration-400 text-white hover:translate-x-[20px] "> <FaAngleDoubleRight className="text-white" /> Renovation</li>
               </div>
-              <div className="flex items-center gap-2 hover:bg-orange-500 border-b border-t-2 border-gray-200 p-2 transform transition duration-300 hover:translate-x-[10px]">
-                <FaAngleDoubleLeft />
-                <li>Uncategorized</li>
+              <div className="relative flex items-center gap-2 bg-[#eb3300] border-t-2 border-gray-300 p-2 ">
+                <FaAngleDoubleRight />
+                <li className="flex items-center justify-center absolute left-2 transform transition duration-400 text-white hover:translate-x-[20px] "> <FaAngleDoubleRight className="text-white" /> Uncategorized</li>
               </div>
             </div>
           </div>
@@ -370,33 +393,24 @@ const Blogs = () => {
           <div className="bg-gray-100 w-75 sm:w-120 md:w-auto my-5  ">
             <h1 className="font-bold text-2xl">Popular Tags</h1>
             <div className="my-3 ">
-              <button className="bg-white m-3 p-2 hover:bg-[#eb3300] hover:text-white font-semibold transition-all duration-300">
-                Accessories
-              </button>
-              <button className="bg-white m-3 p-2 hover:bg-[#eb3300] hover:text-white font-semibold transition-all duration-300">
-                Battery
-              </button>
-              <button className="bg-white m-3 p-2 hover:bg-[#eb3300] hover:text-white font-semibold transition-all duration-300">
-                Change
-              </button>
-              <button className="bg-white m-3 p-2 hover:bg-[#eb3300] hover:text-white font-semibold transition-all duration-300">
-                Engine
-              </button>
-              <button className="bg-white m-3 p-2 hover:bg-[#eb3300] hover:text-white font-semibold transition-all duration-300">
-                Equipment
-              </button>
-              <button className="bg-white m-3 p-2 hover:bg-[#eb3300] hover:text-white font-semibold transition-all duration-300">
-                Gadgets
-              </button>
-              <button className="bg-white m-3 p-2 hover:bg-[#eb3300] hover:text-white font-semibold transition-all duration-300">
-                Glasses
-              </button>
-              <button className="bg-white m-3 p-2 hover:bg-[#eb3300] hover:text-white font-semibold transition-all duration-300">
-                Repair
-              </button>
-              <button className="bg-white m-3 p-2 hover:bg-[#eb3300] hover:text-white font-semibold transition-all duration-300">
-                Services
-              </button>
+              {[
+                "Accessories",
+                "Battery",
+                "Change",
+                "Engine",
+                "Equipment",
+                "Gadgets",
+                "Glasses",
+                "Repair",
+                "Services",
+              ].map((item) => (
+                <button
+                  onClick={handleClick}
+                  className="bg-white m-3 p-2 hover:bg-[#eb3300] hover:text-white font-semibold transition-all duration-300"
+                >
+                  {item}
+                </button>
+              ))}
             </div>
           </div>
         </div>

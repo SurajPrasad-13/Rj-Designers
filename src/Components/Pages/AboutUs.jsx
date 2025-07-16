@@ -27,7 +27,7 @@ function AboutUs() {
   return (
     <>
       {/*  Top Banner Section */}
-      <div className="relative bg-cover bg-center w-full h-[40vh] md:h-[70vh] flex items-end" style={{ backgroundImage: `url(${blog5})` }}>
+      <div className="relative bg-cover bg-center w-full h-[60vh] md:h-[70vh] flex items-end" style={{ backgroundImage: `url(${blog5})` }}>
         <div className="absolute inset-0 bg-black opacity-70"></div>
      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-10 flex flex-row gap-4 text-center md:flex-row md:items-center md:justify-between md:text-left">
 

@@ -8,7 +8,7 @@ export default function Projects() {
   return (
     <>
       <div
-        className="relative bg-cover bg-center w-full h-[40vh] mb-40 md:h-[70vh] flex items-end"
+        className="relative bg-cover bg-center w-full h-[60vh] mb-40 md:h-[70vh] flex items-end"
         style={{ backgroundImage: `url(${blog5})` }}
       >
         {/* Overlay */}
