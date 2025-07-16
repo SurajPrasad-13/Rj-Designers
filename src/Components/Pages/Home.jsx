@@ -27,9 +27,38 @@ import { IoPersonOutline } from "react-icons/io5";
 import { FaRegComments } from "react-icons/fa";
 import { IoArrowForward } from "react-icons/io5";
 
+import React, { useState, useEffect } from "react";
+
+import img1 from "../../assets/Home/videoimg.png";
+import img2 from "../../assets/Home/Background2.jpg";
+import img3 from "../../assets/Home/videoimg.png";
+import img4 from "../../assets/Home/Background2.jpg";
+import img5 from "../../assets/Home/hero_shape_3.webp"; // bottom left
+import img6 from "../../assets/Home/hero_shape_2.webp"; // top right (badi wali)
+
+const images = [
+  {
+    img: img1,
+    text: "Welcome to RJ Designers",
+  },
+  {
+    img: img2,
+    text: "Transforming your Space",
+  },
+  {
+    img: img3,
+    text: "Creative Design & Execution",
+  },
+  {
+    img: img4,
+    text: "Luxury, Comfort & Style",
+  },
+];
+
+const playButtonStyles =
+  "absolute top-[50%] rounded-full bg-white left-[50%]  translate-x-[-50%] translate-y-[-50%] animate-ping  transition-all  duration-2000";
+  
 const Home = () => {
-  const playButtonStyles =
-    "absolute top-[50%] rounded-full bg-white left-[50%]  translate-x-[-50%] translate-y-[-50%] animate-ping  transition-all  duration-2000";
 
   const settings1 = {
     dots: true,
@@ -86,8 +115,54 @@ const Home = () => {
     ],
   };
 
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div>
+      <div className="relative w-full min-h-[80vh] sm:min-h-[90vh] md:h-screen overflow-hidden shadow-lg">
+        {/* Decorative Shape: Bottom Left */}
+        <img
+          src={img5}
+          alt="shape bottom left"
+          className="absolute bottom-0 left-0 w-[100px] sm:w-[150px] z-20"
+        />
+
+        {/* Decorative Shape: Top Right (badi aur responsive) */}
+        <img
+          src={img6}
+          alt="shape top right"
+          className="absolute top-10 right-0 w-[200px] sm:w-[300px] md:w-[700px] z-20 opacity-50"
+        />
+
+        {/* Image Slider */}
+        {images.map((item, i) => (
+          <div
+            key={i}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              i === index ? "opacity-100 z-10" : "opacity-0 z-0"
+            }`}
+          >
+            <img
+              src={item.img}
+              // alt={slide-${i}}
+              className="w-full h-full object-cover"
+            />
+
+            {/* Text Content */}
+            <div className="absolute top-1/2 -translate-y-1/2 left-[40px] sm:left-[60px] md:left-[100px] text-white text-xl sm:text-2xl md:text-4xl font-bold z-30 text-left max-w-[90%] animate-slide-down">
+              {item.text}
+            </div>
+          </div>
+        ))}
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 px-4 sm:px-6 md:px-10 lg:px-16  w-screen mb-10  mx-auto gap-8">
         {/* Left Image Section */}
         <div className="  relative w-50 sm:w-70  h-35  sm:h-60 md:h-96  md:w-full lg:w-135 mt-10 ">
@@ -436,7 +511,7 @@ const Home = () => {
         Gallery
       </div>
 
-      <div className=" h-80 w-auto sm:w-[600px] md:w-[740px]  bg-amber-200 lg:w-[1160px]  md:my-15 mx-auto ">
+      <div className=" h-auto w-auto sm:w-[600px] md:w-[740px]   lg:w-[1160px]  md:my-15 mx-auto ">
         <Slider {...settings2}>
           {gallery.map((item, id) => (
             <div

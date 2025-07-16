@@ -27,32 +27,21 @@ function AboutUs() {
   return (
     <>
       {/*  Top Banner Section */}
-      <div
-        className="relative bg-cover bg-center w-full min-h-[50vh] sm:min-h-[60vh] flex items-center"
-        style={{ backgroundImage: `url(${blog5})` }}
-      >
+      <div className="relative bg-cover bg-center w-full h-[40vh] md:h-[70vh] flex items-end" style={{ backgroundImage: `url(${blog5})` }}>
         <div className="absolute inset-0 bg-black opacity-70"></div>
+     <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-10 flex flex-row gap-4 text-center md:flex-row md:items-center md:justify-between md:text-left">
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-6">
-          {/*  Left Text */}
+
           <div className="text-white text-center md:text-left">
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-semibold leading-tight">
-              Ceo Message
-            </h1>
-            <div className="flex justify-center md:justify-start gap-2 items-center text-base sm:text-lg mt-2 lg:text-2xl">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">About Us</h1>
+            <div className="flex justify-center md:justify-start gap-2 items-center text-base sm:text-lg mt-2">
               <p className="font-bold">Home</p>
               <FaAngleDoubleLeft />
-              <p className="text-red-600 font-bold">Ceo Message</p>
+              <p className="text-red-600 font-bold">About Us</p>
             </div>
           </div>
-
-          {/*  Right Shape Image */}
-          <div className="w-40 sm:w-60 md:w-72 lg:w-80">
-            <img
-              src={shape1}
-              alt="Service Shape"
-              className="w-full h-auto object-contain"
-            />
+          <div className="w-full max-w-sm">
+            <img src={shape1} alt="Service Shape" className="w-full h-auto object-contain" />
           </div>
         </div>
       </div>

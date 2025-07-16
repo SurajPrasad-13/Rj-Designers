@@ -1,22 +1,19 @@
-import React from "react";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { FaRegCopyright } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
-import rjdesign from '../assets/rjdesign.png'
+import rjdesign from "../assets/rjdesign.png";
 import { FaInstagram } from "react-icons/fa";
-// import { motion } from "motion/react";
 import { motion } from "framer-motion";
 import gallery1 from "../assets/Home/gallery1.png";
 import gallery2 from "../assets/Home/gallery2.png";
 import gallery3 from "../assets/Home/gallery3.png";
 import gallery4 from "../assets/Home/gallery4.png";
 import gallery5 from "../assets/Home/gallery5.png";
-import gallery6 from "../assets/Home/gallery6.png"
+import gallery6 from "../assets/Home/gallery6.png";
 
 const Footer = () => {
-
   const footerData = [
     { id: 1, img: gallery1 },
     { id: 2, img: gallery2 },
@@ -26,75 +23,6 @@ const Footer = () => {
     { id: 6, img: gallery6 },
   ];
   return (
-    // <div>
-    //   <div className="grid bg-black h-auto text-white grid-cols-1 md:grid-cols-2 lg:grid-cols-4 font-medium  p-20 sm:gap-10 md:gap-0 ">
-    //     <div>
-    //       <img className="h-15 my-4" src={rjdesign} alt="" />
-    //       <p>
-    //         At RJ Designers, we transform spaces into stunning, functional, and
-    //         inspiring environments.
-    //       </p>
-    //     </div>
-    //     <div className="font-[400] leading-9 ">
-    //       <h1 className="text-3xl my-2 font-bold">Our Services</h1>
-    //       <div className="flex items-center gap-2 ">
-    //         <MdKeyboardDoubleArrowRight className="text-2xl" />
-    //         <p>Modular Interior</p>
-    //       </div>
-    //       <div className="flex items-center gap-2 ">
-    //         <MdKeyboardDoubleArrowRight className="text-2xl" />
-    //         <p>Full Home Interior</p>
-    //       </div>
-    //       <div className="flex items-center gap-2 ">
-    //         <MdKeyboardDoubleArrowRight className="text-2xl" />
-    //         <p>Renovation</p>
-    //       </div>
-    //       <div className="flex items-center gap-2 ">
-    //         <MdKeyboardDoubleArrowRight className="text-2xl " />
-    //         <p>Modular Interior</p>
-    //       </div>
-    //     </div>
-    //     <div className="font-[400] leading-9 ">
-    //       <h1 className="text-3xl my-2 font-bold">Contct Us</h1>
-    //       <div className="flex items-center gap-2 ">
-    //         <FaPhoneAlt className="" /> <p>+91 9784555143</p>
-    //       </div>
-    //       <div className="flex items-center gap-2 ">
-    //         <MdEmail className="" /> <p>info@rjdesigners.com</p>
-    //       </div>
-    //       <div className="flex items-center gap-2 ">
-    //         <IoLocationSharp className="" /> <p>Address:</p>
-    //       </div>
-    //     </div>
-    //     <div className="font-[400] h-full leading-7">
-    //       <h1 className="text-3xl my-2 font-bold">Photos Gallery</h1>
-    //       <div className="  h-33 grid grid-cols-3  ">
-    //         {footerData.map((item) => {
-    //           return (
-    //             <div
-    //               key={item.id}
-    //               className="h-13 w-22 bg-cover bg-center relative"
-    //               style={{ backgroundImage: url(${item.img}) }}
-    //             >
-    //               <motion.div
-    //                 initial={{ scaleX: 0.1, opacity: 0, zIndex: 0 }}
-    //                 whileHover={{ scaleX: 1, opacity: 0.5, zIndex: 3 }}
-    //                 transition={{ duration: 0.2 }}
-    //                 className=" flex items-center justify-center  absolute top-0 left-0 h-13 w-22 bg-red-400"
-    //               >
-    //                 <FaInstagram />
-    //               </motion.div>
-    //             </div>
-    //           );
-    //         })}
-    //       </div>
-    //     </div>
-    //   </div>
-    //   <div className="w-full bg-[#eb3300] text-white flex items-center justify-center gap-2 p-2">
-    //     {" "}
-    //     <FaRegCopyright /> 2025 All Rights Reserved By Rj Designer
-    //   </div>
-    // </div>
     <>
       <div>
         <div className="grid bg-black text-white grid-cols-1 md:grid-cols-2 lg:grid-cols-4 font-medium px-6 py-12 gap-8">
@@ -102,15 +30,20 @@ const Footer = () => {
           <div>
             <img className="h-14 my-4" src={rjdesign} alt="logo" />
             <p className="text-sm text-gray-300">
-              At RJ Designers, we transform spaces into stunning, functional, and
-              inspiring environments.
+              At RJ Designers, we transform spaces into stunning, functional,
+              and inspiring environments.
             </p>
           </div>
 
           {/* Services */}
           <div className="font-[400] leading-9 text-sm">
             <h1 className="text-xl my-2 font-bold">Our Services</h1>
-            {["Modular Interior", "Full Home Interior", "Renovation", "Modular Interior"].map((service, idx) => (
+            {[
+              "Modular Interior",
+              "Full Home Interior",
+              "Renovation",
+              "Modular Interior",
+            ].map((service, idx) => (
               <div key={idx} className="flex items-center gap-2">
                 <MdKeyboardDoubleArrowRight className="text-lg" />
                 <p>{service}</p>
@@ -158,8 +91,6 @@ const Footer = () => {
                 ))}
               </div>
             </div>
-
-
           </div>
         </div>
 
