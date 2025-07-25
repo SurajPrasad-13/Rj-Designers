@@ -1,5 +1,5 @@
 import React from "react";
-import { FaAngleDoubleLeft } from "react-icons/fa";
+import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 import { FaRegFilePdf } from "react-icons/fa";
 import { MdArrowRightAlt } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
@@ -63,7 +63,7 @@ function FullHome() {
             </h1>
             <div className="flex justify-center lg:justify-start gap-2 items-center text-base sm:text-lg mt-2">
               <p className="font-bold">Home</p>
-              <FaAngleDoubleLeft />
+              <FaAngleDoubleRight />
               <p className="text-red-600 font-bold">Full Home Interior</p>
             </div>
           </div>
@@ -88,31 +88,27 @@ function FullHome() {
           <div className="text-2xl font-bold m-2 gap-2 p-2">Categories</div>
 
           <div className="list-none m-2 font-semibold text-lg">
-            <div className="flex items-center gap-2 hover:bg-orange-500 border-t-2 border-gray-300 p-2 transform transition duration-75 hover:translate-x-[10px]">
-              <FaAngleDoubleLeft />
-              <li>Full Home Interior</li>
-            </div>
-            <div className="flex items-center gap-2 hover:bg-orange-500 border-t-2 border-gray-300 p-2 transform transition duration-75 hover:translate-x-[10px]">
-              <FaAngleDoubleLeft />
-              <li>Luxury Interior</li>
-            </div>
-            <div className="flex items-center gap-2 hover:bg-orange-500 border-t-2 border-gray-300 p-2 transform transition duration-75 hover:translate-x-[10px]">
-              <FaAngleDoubleLeft />
-              <li>Modular Interior</li>
-            </div>
-            <div className="flex items-center gap-2 hover:bg-orange-500 border-t-2 border-b-2 border-gray-300 p-2 transform transition duration-75 hover:translate-x-[10px]">
-              <FaAngleDoubleLeft />
-              <li>Renovation</li>
-            </div>
-            <div className="flex items-center gap-2 hover:bg-orange-500 border-b border-t-2 border-gray-200 p-2 transform transition duration-75 hover:translate-x-[10px]">
-              <FaAngleDoubleLeft />
-              <li>Uncategorized</li>
-            </div>
+            {[
+              "Full Home Interior",
+              "Luxury Interior",
+              "Modular Interior",
+              "Renovation",
+              "Uncategorized",
+            ].map((item, id) => (
+              <div
+                key={id}
+                className="relative flex items-center gap-2 hover:bg-[#eb3300] transition-all duration-200 group border-t-2 border-gray-300 p-2 "
+              >
+                <FaAngleDoubleRight className="z-10" />
+                <li className="flex items-center justify-center absolute left-2 transform transition duration-300 hover:text-white group-hover:translate-x-[20px] ">
+                  {" "}
+                  <FaAngleDoubleRight className="text-white" /> {item}
+                </li>
+              </div>
+            ))}
           </div>
 
-          <div className="bg-black text-white font-bold">
-            <div></div>
-          </div>
+          
         </div>
 
         {/* Image Section */}

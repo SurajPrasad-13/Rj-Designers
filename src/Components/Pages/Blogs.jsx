@@ -343,28 +343,24 @@ const Blogs = () => {
           <div className="bg-gray-100 my-5 p-5 w-75 sm:w-120 md:w-auto ">
             <div className="text-2xl font-bold m-2 gap-2 p-2">Categories</div>
 
-            <div className="list-none m-2 font-semibold text-lg">
-              <div className="relative flex items-center gap-2 bg-[#eb3300] border-t-2 border-gray-300 p-2 ">
-                <FaAngleDoubleRight />
-                <li className="flex items-center justify-center absolute left-2 transform transition duration-400 text-white hover:translate-x-[20px] "> <FaAngleDoubleRight className="text-white" /> Full Home Interior</li>
+            {[
+              "Full Home Interior",
+              "Luxury Interior",
+              "Modular Interior",
+              "Renovation",
+              "Uncategorized",
+            ].map((item, id) => (
+              <div
+                key={id}
+                className="relative flex items-center gap-2 hover:bg-[#eb3300] transition-all duration-200 group border-t-2 border-gray-300 p-2 "
+              >
+                <FaAngleDoubleRight className="z-10" />
+                <li className="flex items-center justify-center absolute left-2 transform transition duration-300 hover:text-white group-hover:translate-x-[20px] ">
+                  {" "}
+                  <FaAngleDoubleRight className="text-white" /> {item}
+                </li>
               </div>
-              <div className="relative flex items-center gap-2 bg-[#eb3300] border-t-2 border-gray-300 p-2 ">
-                <FaAngleDoubleRight />
-                <li className="flex items-center justify-center absolute left-2 transform transition duration-400 text-white hover:translate-x-[20px] "> <FaAngleDoubleRight className="text-white" /> Luxury Interior</li>
-              </div>
-              <div className="relative flex items-center gap-2 bg-[#eb3300] border-t-2 border-gray-300 p-2 ">
-                <FaAngleDoubleRight />
-                <li className="flex items-center justify-center absolute left-2 transform transition duration-400 text-white hover:translate-x-[20px] "> <FaAngleDoubleRight className="text-white" /> Modular Interior</li>
-              </div>
-              <div className="relative flex items-center gap-2 bg-[#eb3300] border-t-2 border-gray-300 p-2 ">
-                <FaAngleDoubleRight />
-                <li className="flex items-center justify-center absolute left-2 transform transition duration-400 text-white hover:translate-x-[20px] "> <FaAngleDoubleRight className="text-white" /> Renovation</li>
-              </div>
-              <div className="relative flex items-center gap-2 bg-[#eb3300] border-t-2 border-gray-300 p-2 ">
-                <FaAngleDoubleRight />
-                <li className="flex items-center justify-center absolute left-2 transform transition duration-400 text-white hover:translate-x-[20px] "> <FaAngleDoubleRight className="text-white" /> Uncategorized</li>
-              </div>
-            </div>
+            ))}
           </div>
 
           <div className="bg-gray-100 p-5 w-75 sm:w-120 md:w-auto  ">

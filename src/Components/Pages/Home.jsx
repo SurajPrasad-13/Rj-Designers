@@ -390,8 +390,8 @@ const Home = () => {
             <img className="w-7" src={doubleLine2} alt="" />
           </div>
           <div className="flex items-start justify-start flex-col gap-10">
-            {whyChooseUs.map((item) => (
-              <div className="group flex flex-col md:flex-row items-center justify-center gap-3 md:gap-7">
+            {whyChooseUs.map((item,i) => (
+              <div key={i} className="group flex flex-col md:flex-row items-center justify-center gap-3 md:gap-7">
                 <div className="text-[#eb3300] px-3 md:px-6 size-15 md:size-20 text-2xl md:text-4xl font-semibold rounded-full flex items-center justify-center bg-[#282a30] group-hover:bg-white transition-all duration-500">
                   {item.id}
                 </div>
